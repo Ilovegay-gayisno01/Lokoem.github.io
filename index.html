@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>My Private Site</title>
+<meta charset="UTF-8">
+<title>Private Site</title>
+<style>
+body {
+    font-family: Arial;
+    background: #f5f5f5;
+    padding: 40px;
+}
+#content { display: none; }
+#loginBox {
+    background: white;
+    padding: 20px;
+    max-width: 300px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+input { padding: 8px; width: 90%; margin-top: 10px; }
+button { padding: 8px 15px; margin-top: 15px; }
+</style>
 </head>
 <body>
-    <h1>Welcome!</h1>
-    <p>Nội dung web của bạn sẽ nằm ở đây sau khi nhập đúng mật khẩu.</p>
+
+<div id="loginBox">
+    <h2>Mật khẩu?</h2>
+    <input type="password" id="password" placeholder="Nhập mật khẩu...">
+    <button onclick="checkPassword()">Enter</button>
+    <p id="error" style="color:red;"></p>
+</div>
+
+<div id="content">
+    <h1>Hello!</h1>
+    <p>Đây là khu vực fanart / fanfic riêng tư của bạn!</p>
+    <p>Bạn có thể đặt bất kỳ nội dung HTML nào tại đây.</p>
+</div>
+
+<script>
+function checkPassword() {
+    var pass = document.getElementById("password").value;
+    if (pass === "PASS123") {                 // 🔥 đổi PASS123 thành mật khẩu của bạn
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    } else {
+        document.getElementById("error").innerText = "Sai mật khẩu!";
+    }
+}
+</script>
+
 </body>
 </html>
